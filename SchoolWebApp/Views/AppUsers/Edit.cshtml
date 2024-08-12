@@ -1,0 +1,26 @@
+﻿@using SchoolWebApp.ViewModels;
+@using SchoolWebApp.Models;
+
+@model AppUser;
+@{
+	ViewData["Title"] = "EDIT USER";
+}
+
+<h1>Edit User</h1>
+<a asp-action="Index" class="btn btn-secondary">Back</a>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Edit" method="post">
+	<div class="form-group my-3">
+		<label asp-for="UserName"></label>
+		<input asp-for="UserName" class="form-control" disabled/>
+	</div>
+	<div class="form-group my-3">
+		<label asp-for="Email"></label>
+		<input asp-for="Email" class="form-control" />
+	</div>
+	<div class="form-group ym-3">
+		<label for="password">Password</label>
+		<input name="password" class="form-control" type="password" />
+	</div>
+	<input type="submit" class="btn btn-info my-3" />
+</form>

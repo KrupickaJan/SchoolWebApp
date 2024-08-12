@@ -1,0 +1,29 @@
+﻿@using SchoolWebApp.DTO;
+@using SchoolWebApp.ViewModels;
+@model GradeDTO;
+
+<div>
+	<form asp-action="Edit">
+		<h4>Edit the grade</h4>
+		<div class="form-group">
+			<label asp-for="StudentId" class="control-label">Student id</label>
+			<select asp-for="StudentId" class="form-control" asp-items="ViewBag.Students"></select>
+		</div>
+		<div class="form-group">
+			<label asp-for="SubjectId" class="control-label">Subject id</label>
+			<select asp-for="SubjectId" class="form-control" asp-items="ViewBag.Subjects"></select>
+		</div>
+		<div class="form-group">
+			<label asp-for="Topic">Curriculum</label>
+			<input asp-for="Topic" type="text" class="form-control" placeholder="What was examined"></input>
+		</div>
+		<div class="form-group">
+			<label asp-for="Mark" class="control-label">Mark</label>
+			<input asp-for="Mark" type="number" class="form-control" placeholder="Mark"></input>
+		</div>
+		<br />
+		<div>
+			<input class="btn btn-info my-3" type="submit" value="Edit" />
+		</div>
+	</form>
+</div>

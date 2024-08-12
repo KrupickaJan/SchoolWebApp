@@ -1,0 +1,26 @@
+﻿<h1>Upload file</h1>
+
+<form method="post" enctype="multipart/form-data" asp-action="Upload" asp-controller="FileUpload">
+    <div class="form-group">
+        <label class="btn btn-secondary">
+            <input type="file" name="file" id="file" hidden />Choose file:
+            <span id="message">No file chosen</span>
+        </label>
+
+        <input class="btn btn-secondary mx-3" type="submit" value="Upload" />
+    </div>
+</form>
+
+<script>
+    let file = document.getElementById("file");
+    let message = document.getElementById("message");
+
+    file.addEventListener("change", () => {
+        if (file.files.length) {
+            let fileName = file.files[0].name;
+            message.innerHTML = fileName;
+        } else {
+            message.innerHTML = "Please select a file";
+        }
+    });
+</script>

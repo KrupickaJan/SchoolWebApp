@@ -1,0 +1,25 @@
+﻿@using SchoolWebApp.DTO;
+@model IEnumerable<StudentDTO>;
+<h1>List of students</h1>
+@if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Teacher")))
+{
+	<div class="bg-primary rounded-4 p-3 my-3">
+		<a asp-action="Create" class="btn btn-secondary">Create new student</a>
+	</div>
+}
+@foreach (var item in Model)
+{
+	<div class="bg-primary rounded-4 p-3 my-3">
+		<h5 class="text-light">@item.FirstName @item.LastName</h5>
+		<p class="text-light">Date of birth: @item.DateOfBirth.ToString("dd.MM.yyyy")</p>
+		@if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Teacher")))
+		{
+			<a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+			<form method="post" class="d-inline p-3">
+				<button type="submit" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</button>
+			</form>
+		}
+	</div>
+
+}
+

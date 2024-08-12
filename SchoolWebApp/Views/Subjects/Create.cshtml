@@ -1,0 +1,18 @@
+﻿@using SchoolWebApp.DTO;
+@model SubjectDTO;
+
+<h1>Create new subjects</h1>
+<form asp-action="Create">
+	<div class="form-group my-3">
+		<label asp-for="Name"></label>
+		<input type="text" asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<input type="submit" class="btn btn-success my-3" value="Create" />
+</form>
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial"/>
+}
+}
